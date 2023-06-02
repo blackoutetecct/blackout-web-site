@@ -1,0 +1,108 @@
+.projects {
+    background-color: white;
+    max-width: 700px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 4rem 0 10rem;
+}
+
+.projects > h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+}
+
+.projectCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;  
+    gap: 3rem;
+}
+
+.project {
+    background: #f5f5f5;
+    color: black;
+    width: 300px;
+    
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.263);
+    transition: .5s;
+
+}
+
+.project:hover {
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.518);
+    transition: .5s;
+
+    transform: translatey(-10px);
+}
+
+.project > div {
+    background-color: white;
+
+    border-radius: 5px 5px 0 0 ;
+}
+
+.project > div img {
+    width: 100%;
+}
+
+.project h3 {
+    color: #7a7a7a;
+    
+}
+
+.project p {
+    color: #7f7d7d;
+    text-align: center;
+    font-size: 0.8rem;
+
+    margin: 0 1rem;
+}
+
+.project a {
+    font-size: 0.8rem;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: .8em 1.2rem;
+    border-radius: 5px;
+
+    margin-bottom: 1rem;
+
+    transition: .5s;
+
+    color: black;
+}
+
+.project a:hover {
+    color: white;
+    background-color: black;
+
+    transition: .5s;
+}
+
+
+@media (max-width: 1100px) {
+
+    .projectCard {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .projects > h2 {
+        font-size: 2.5rem;
+    }
+
+}

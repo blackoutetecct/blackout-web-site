@@ -1,0 +1,180 @@
+.home > div:not(.divider) {
+    margin-left: 12rem;
+  }
+  
+.home {
+    background-image: url(../../images/3d-asset.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    padding: 5rem 0 9rem;
+    background-color: #090808;
+    position: relative;
+    border-radius: 0 0 100px 0px;
+
+    transition: .5s;
+}
+
+.home h1 {
+    color: white;
+    font-size: 5rem;
+}
+
+.home p {
+    color: white;
+    font-size: 1.2rem;
+    margin: 1rem 0 3rem;
+}
+
+.watch {
+    transition: .5s;
+}
+
+.watch:hover {
+    background-color: #ff0000;
+    color: white;
+
+    transition: .5s;
+} 
+
+.link-home {
+    color: black;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 50px;
+    text-decoration: none;
+}
+  
+.link-home:last-child {
+    margin-left: 1rem;
+
+    transition: .5s;
+}
+
+
+.link-home:last-child:hover {
+    background: rgba(255, 255, 255, 0.124);
+    color: white;
+
+    transition: .5s;
+}
+
+.lamp {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+
+    transform: rotate(-40deg);
+    transition: 1s;
+    width: 500px;
+
+    z-index: 2;
+}
+
+.lamp2 {
+    position: absolute;
+    bottom: -692px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    transition: .5s;
+}
+
+.divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.divider svg {
+    position: relative;
+    display: block;
+    width: calc(181% + 1.3px);
+    height: 150px;
+}
+
+.divider .shape-fill {
+    fill: #FFFFFF;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 20px;
+
+    position: relative;
+    top: -230px;
+    left: -150px;
+    
+    border-radius: 200px;
+}
+
+.social-link {
+    border-radius: 100px;
+    border: 2px solid white;
+    padding: 7px;
+    transition: .5s;
+}
+
+.social-link:hover {
+    transform: translate(10px);
+    transition: .5s;
+}
+
+
+@media (max-width: 1300px) {
+    .lamp {
+        transition: 1s;
+        width: 300px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .lamp {
+        transition: 1s;
+        width: 200px;
+    }
+
+    .home > div:not(.divider) {
+        margin: 0 2rem;
+    }
+
+    .lamp2 {
+        width: 250px;
+        bottom: -395px;
+
+        transition: .5s;
+    }
+}
+
+@media (max-width: 700px) {
+    .lamp {
+        width: 200px;
+        transition: 1s;
+        top: 350px;
+    }
+
+    .home > div {
+        margin: 0 2rem;
+      }
+
+    .home h1 {
+        font-size: 3rem;
+    }   
+    
+    .home {
+        padding: 5rem 0 14rem;
+        transition: .5s;
+    }
+
+}
+
+

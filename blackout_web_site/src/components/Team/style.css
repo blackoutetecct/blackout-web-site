@@ -1,0 +1,45 @@
+.team {
+    background-color: #090808;
+    color: white;
+
+    padding: 10rem 0;
+}
+
+.team > h2 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.carousel {
+    margin-top: 5rem;
+    padding: 0 4rem;
+    background: #090808;
+}
+#infinite-carousel {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 1200px) {
+    .carousel {
+        padding: 0;
+    }
+
+    .carousel p {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .team > h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .carousel p {
+        font-size: .7rem;
+    }
+}

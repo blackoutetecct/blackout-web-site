@@ -1,0 +1,127 @@
+header {
+    background-color: #090808;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5rem;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 4;
+  }
+  
+  header img {
+    width: 140px;
+  }
+  
+  header ul {
+    color: white;
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+  }
+
+  header .first-link {
+    margin-left: 15rem;
+  }
+  
+  header ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 1rem;
+    border-radius: 5px;
+    border-bottom: 3px solid transparent;
+    transition: .3s ease-in-out;
+  }
+
+  header ul li a:hover {
+    color: rgb(253, 191, 113);
+    border-bottom-color: rgb(253, 191, 113);
+  }
+
+  .line-on-the-right {
+    position: absolute;
+    top: 50px;
+    right: 7px;
+  }
+
+  .no-display {
+    display: none;
+  }
+
+  .open {
+    margin-top: 2rem;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 80%;
+
+    font-size: 2rem;
+  }
+
+  header img {
+    margin-top: 20px;
+  }
+
+
+  @media (max-width: 1100px) {
+
+    .contentLine {
+      display: block;
+    }
+
+    .line {
+      margin: 0.5rem 0;
+      background-color: white;
+      width: 50px;
+      height: 5px;
+      margin-right: 2rem;
+    }
+    header {
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+  
+    header ul {
+      display: none;
+      width: 100vw;
+
+    }
+
+    header ul li:nth-child(4) {
+      margin-right: 0rem;
+  }
+
+
+  .menuOpen {
+    background: #090808;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 400;
+  }
+
+  .closeMenuLeft {
+    transform: rotate(40deg);
+
+    position: relative;
+    top: 10px;
+  }
+  .closeMenuRight {
+    transform: rotate(-40deg);
+    position: relative;
+    top: 5;
+  }
+
+  .image-position-left {
+    position: absolute;
+
+    top: 0px;
+    z-index: 1000;
+  }
+
+  }

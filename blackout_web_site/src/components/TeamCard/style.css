@@ -1,0 +1,62 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0rem;
+    background-color: #121212;
+
+    padding: 3rem 1rem;
+    margin: 0;
+    border-radius: 20px;
+
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translate(5px);
+
+    transition: .5s;
+}
+
+.card > div > img {
+    border-radius: 100px;
+    border: 4px solid white;
+    width: 100px;
+    height: 100px;
+}
+
+.card > p:nth-child(2) {
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
+.card > p:nth-child(3) {
+    color: #fdbf71;
+    font-weight: 600;
+}
+
+.social-media-team {
+    display: flex;
+    gap: .2rem;
+    flex-direction: row;
+}
+
+.social-link-team {
+    border: 2px solid transparent;
+    border-radius: 1000px;
+    padding: .2rem;
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+    
+    transition: .5s;
+    border: 2px solid #fdbf71;
+    background-color: #fdbf71;
+}
+
+.social-link-team:hover {
+    
+    border: 2px solid #ffff;
+    background-color: transparent;
+    transition: .5s;
+}
