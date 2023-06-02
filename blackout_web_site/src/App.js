@@ -1,14 +1,15 @@
 import './App.css';
 
-import Header from './components/Header'
-import Home from './components/Home'
+import Header from './components/Header';
+import Home from './components/Home';
 
 
-import KnowMore from './components/KnowMore'
-import WhoWeAre from './components/WhoWeAre'
-import Team from './components/Team'
-import Projects from './components/Projects'
-import Footer from './components/Footer'
+import Chat from './components/Chat';
+import Footer from './components/Footer';
+import KnowMore from './components/KnowMore';
+import Projects from './components/Projects';
+import Team from './components/Team';
+import WhoWeAre from './components/WhoWeAre';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       <Header />
 
         <main> 
-
+            <Chat />
             <Home />
             <KnowMore />
             <WhoWeAre />
