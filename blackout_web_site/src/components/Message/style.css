@@ -1,0 +1,21 @@
+.message {
+    font-size: 18px;
+    max-width: 230px;
+    padding:5px;
+}
+
+.message.me {
+    color:white;
+    background-color: #61e39e;
+    border-radius: 10px 10px 0 10px;
+    align-self: flex-end;
+
+}
+
+.message.support {
+    align-self: flex-start;
+    color:#090808;
+    background-color: transparent;
+    border: 1px solid #090808 ;
+    border-radius: 10px 10px 10px 0;  
+}
