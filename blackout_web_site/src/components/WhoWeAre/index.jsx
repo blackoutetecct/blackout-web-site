@@ -1,8 +1,8 @@
 import './style.css'
 
 import phone from '../../images/phone.png'
-import light from '../../images/luz2.png'
-import outlet from '../../images/lamp.png'
+import light from '../../images/luz.png'
+import outlet from '../../images/outlet.png'
 
 export default function WhoWeAre() {
 

@@ -1,5 +1,5 @@
 import lamp from '../../images/home.png'
-import lamp2 from '../../images/lemp.png'
+import lamp2 from '../../images/lamp.png'
 
 import { GithubLogo, InstagramLogo, EnvelopeSimple } from 'phosphor-react'
 
