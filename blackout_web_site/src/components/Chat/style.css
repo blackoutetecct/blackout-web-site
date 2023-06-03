@@ -1,7 +1,7 @@
 .container {
     position: fixed;
-    top: 80vh;
-    left: -10vw;
+    top: 90vh;
+    right: -297px;
     width: 2000px;
     height: 100px;
     z-index: 999;
@@ -12,7 +12,7 @@
 .chatbox {
     position: absolute;
     bottom: 30px;
-    right: 30px;
+    right: 20px;
     z-index: 999;
 }
 
@@ -221,4 +221,15 @@
     position: relative;
     left: 4px;
     top: 8px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        position: fixed;
+        top: 90vh;
+        right: -400px;
+        width: 2000px;
+        height: 100px;
+        z-index: 999;
+      }
 }
