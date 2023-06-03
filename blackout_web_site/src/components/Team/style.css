@@ -2,7 +2,7 @@
     background-color: #090808;
     color: white;
 
-    padding: 10rem 0;
+    padding: 5rem 0 10rem;
 }
 
 .team > h2 {
@@ -36,10 +36,22 @@
     .team > h2 {
         font-size: 2.5rem;
     }
+
+    .team {
+        padding: 0rem 0 10rem;
+    }
 }
 
 @media (max-width: 900px) {
     .carousel p {
         font-size: .7rem;
+    }
+
+    .carousel {
+        margin: 3rem 0 0;
+    }
+
+    .team {
+        padding: 0 0 7rem;
     }
 }

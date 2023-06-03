@@ -1,39 +1,51 @@
 import './style.css'
 import blackoutLogo from '../../images/blackout2.png'
+import { ArrowRight, MapPin, EnvelopeSimple, InstagramLogo, GithubLogo, LinkedinLogo  } from 'phosphor-react'
 
 export default function Footer() {
     return(
 
         <footer>
-            <div className='footerContent'>
+            <nav className='footerContent'>
                 <div>
                     <h3> Links Rápidos </h3>
                     <div>
-                        <a href="/" > Inicio </a>
-                        <a href="/" > Quem somos </a>
-                        <a href="/" > Equipe </a>
-                        <a href="/" > Projetos </a>
+                    <ul>
+                        <li className="footer-link">
+                            <ArrowRight size={20} weight='bold' color="#fdbf71" /> <a href="/" > início </a>
+                        </li>
+                        <li className='footer-link'>
+                            <ArrowRight size={20} weight='bold' color="#fdbf71" />  <a href="#quemSomos" > Quem somos </a>
+                        </li>
+                        <li className='footer-link'>
+                            <ArrowRight size={20} weight='bold' color="#fdbf71" />  <a href="#equipe" > Equipe </a>
+                        </li>
+                        <li className='footer-link'>
+                            <ArrowRight size={20} weight='bold' color="#fdbf71" /><a href="#projetos" > Projetos </a>
+                        </li>
+                    </ul>
                     </div>
                 </div>
                 <div>
                     <h3> Contatos </h3>
                     <div>
-                        <a href="/" > São Paulo </a>
-                        <a href="/" > + 55 119123-31231 </a>
-                        <a href="/" > blackout@gmail.com </a>
-                        <a href="/" > Etec Cidade Tirandentes </a>
+                        <ul>
+                            <li className="footer-link"><MapPin size={20} color="#fdbf71" weight='fill' /><a href="/" >  Etec Cidade Tiradentes </a></li>
+                            <li className="footer-link"> <EnvelopeSimple  size={20} color="#fdbf71" weight="bold" /><a href="/" > blackoutempresa@gmail.com </a></li>
+                        </ul>
                     </div>
                 </div>
                 <div>
                     <h3> Siga-nos </h3>
                     <div>
-                        <a href="/" > Twitter </a>
-                        <a href="/" > Instagram </a>
-                        <a href="/" > Linkedin </a>
-                        <a href="/" > Github </a>
+                        <ul>
+                            <li className="footer-link"> <InstagramLogo size={20} color="#fdbf71" weight="fill" /> <a href="https://instagram.com/blackoutetecct" target='_blank' > Instagram </a></li>
+                            <li className="footer-link"> <GithubLogo size={20} color="#fdbf71" weight="fill" /> <a href="https://github.com/blackoutetecct" target='_blank' > Github </a></li>
+                            <li className="footer-link"> <LinkedinLogo size={20} color="#fdbf71" weight="fill" /> <a href="/" target="_blank"> LinkedIn </a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
+            </nav>
 
             <div className='copyright'>
                 <img src={blackoutLogo} alt="Blackout logo" />

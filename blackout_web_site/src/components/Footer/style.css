@@ -1,5 +1,5 @@
 footer {
-    padding: 4rem 8rem;
+    padding: 4rem 8rem 0rem;
     background-color: black;
 }
 
@@ -7,6 +7,10 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
+}
+
+.footer-link {
+    display: flex;
 }
 
 footer h3, a {
@@ -33,7 +37,7 @@ footer a {
 }
 
 footer a:hover {
-    transform: translate(30px);
+    transform: translate(20px);
     transition: .5s;
 }
 
@@ -43,7 +47,8 @@ footer a:hover {
     align-items: center;
     flex-direction: column;
     width: 50vw;
-    margin: 4rem auto 1rem ;
+    max-width: 2000px;
+    margin: 4rem auto 0rem;
     padding: 2rem 0;
 
     border-top: 1px solid #999999;
@@ -72,3 +77,16 @@ footer img {
     }
 }
 
+@media (max-width: 500px) {
+    footer {
+        padding: 4rem .2rem 0rem 2rem;
+    }
+
+    footer a {
+        padding: 0 1rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+    }
+}

@@ -31,13 +31,13 @@ export default function Home() {
 
         <div className='social-media'> 
           
-          <a href="/">
+          <a href="https://github.com/blackoutetecct" target='_blank'>
             <GithubLogo  className="social-link" size={30} color="#ededed" />
           </a>
-          <a href="/">
+          <a href="https://instagram.com/blackoutetecct" target='_blank'>
             <InstagramLogo className="social-link" size={30} color="#ededed" />
           </a>
-          <a href="/">
+          <a href="mailto:blackout@gmail.com">
             <EnvelopeSimple className="social-link" size={30} color="#ededed" />
           </a>
 

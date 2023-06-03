@@ -60,3 +60,17 @@
     background-color: transparent;
     transition: .5s;
 }
+
+@media (max-width: 700px) {
+    .card {
+        padding: 2rem 1rem;
+    }
+
+    .card > p:nth-child(2) {
+        margin-top: .2rem;
+    }
+
+    .social-link-team {
+        margin-top: 1rem;
+    }
+}

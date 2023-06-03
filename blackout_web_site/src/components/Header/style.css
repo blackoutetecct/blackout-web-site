@@ -3,9 +3,9 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 0 5rem;
+    width: 100vw;
     align-items: center;
     position: fixed;
-    width: 100%;
     top: 0;
     z-index: 4;
   }
@@ -124,4 +124,18 @@ header {
     z-index: 1000;
   }
 
+  header img {
+    width: 80px;
   }
+
+  .line-on-the-right {
+    position: absolute;
+    top: 25px;
+    right: 7px;
+  }
+
+  .open {
+    font-size: 1.5rem;
+  }
+
+}

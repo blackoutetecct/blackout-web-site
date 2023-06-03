@@ -17,9 +17,9 @@ export default function WhoWeAre() {
           <div>
             <p> A BLACKOUT é uma empresa especializada em oferecer <br />soluções tecnológicas sob medida para você. <br /> com uma equipe altamente qualificada de programadores, <br /> desenvolvemos softwares, aplicativos, websites e sistemas. </p>
             
-            <p>buscamos sempre estar atualizados com as últimas tendências <br /> e eecnologias do mercado <br /> garantindo assim que nossos <br /> projetos sejam inovadores, eficientes e de alta qualidade.</p>
+            <p>buscamos sempre estar atualizados com as últimas tendências <br /> e tecnologias do mercado <br /> garantindo assim que nossos <br /> projetos sejam inovadores, eficientes e de alta qualidade.</p>
   
-           <a className="meet-team" href="/"> CONHECER A NOSSA EQUIPE </a>
+           <a className="meet-team" href="#equipe"> CONHECER A NOSSA EQUIPE </a>
           </div>
         </div>
 
