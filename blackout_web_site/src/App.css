@@ -1,5 +1,23 @@
 main {
   margin-top: 7.6em;
+  background-color: white;
+}
+
+html {
+  background-color: #000;
+  background-image: url(./images/3d-asset.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 3000px;
+  margin: 0 auto;
+
 }
 
 
