@@ -20,6 +20,7 @@ export default function WhoWeAre() {
             <p>buscamos sempre estar atualizados com as últimas tendências <br /> e tecnologias do mercado <br /> garantindo assim que nossos <br /> projetos sejam inovadores, eficientes e de alta qualidade.</p>
   
            <a className="meet-team" href="#equipe"> CONHECER A NOSSA EQUIPE </a>
+           <div className="animation-line"></div>
           </div>
         </div>
 

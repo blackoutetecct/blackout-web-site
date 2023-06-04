@@ -51,6 +51,19 @@
 
   padding: 0 1rem;
   z-index: 3;
+  transition: 1s;
+}
+
+.animation-line {
+  width: 0px;
+  height: 2px;
+  background: #fdbf71;
+  transform: translate(10px, 20px);
+  transition: .5s;
+}
+
+.meet-team:hover + .animation-line {
+  animation: animation-line .5s forwards;
 }
 
 .light {
@@ -71,7 +84,16 @@
   bottom: -350px;
 }
   
-  
+@keyframes animation-line {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+
 
 @media (max-width: 1500px) {
 
@@ -111,8 +133,16 @@
   .light {
     width: 150px;
     bottom: 40px;
-
+    
     transition: .5s;
+  }
+  @keyframes animation-line {
+    0% {
+      width: 0px;
+    }
+    100% {
+      width: 80%;
+    }
   }
 
 }
@@ -127,6 +157,8 @@
     height: auto;
     margin: 0 2rem;
   }
+
+  
   
 }
 
