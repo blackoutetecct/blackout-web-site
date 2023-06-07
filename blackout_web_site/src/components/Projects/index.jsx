@@ -17,7 +17,7 @@ export default function Projects() {
 
                     <h3> SustenApp </h3>
 
-                    <p>Lorem, ipsum dolor sit amet consectetur adiacilis. Lorem ipsum dolor sit amet consectetur, adipisicing elit.  </p>
+                    <p>Aplicativo para controlar uma de nossas patentes de automatização residencial por baixo custo.</p>
 
                     <a href="/">Saiba mais</a>     
                     </div>
@@ -27,7 +27,7 @@ export default function Projects() {
 
                     <h3> Dev. Watch </h3>
 
-                    <p>Lorem, ipsum dolor sit amet consectetur adiacilis. Lorem ipsum dolor sit amet consectetur, adipisicing elit.  </p>
+                    <p> Projeto didático desenvolvido com o intuito de testar nossas habilidades criando um E-commerce funcional de relógios de luxo como tema central.  </p>
 
                     <a href="/">Saiba mais</a>     
                     </div>  
@@ -37,7 +37,7 @@ export default function Projects() {
 
                     <h3> Gerenciador De Tarefas </h3>
 
-                    <p>Lorem, ipsum dolor sit amet consectetur adiacilis. Lorem ipsum dolor sit amet consectetur, adipisicing elit.  </p>
+                    <p> Projeto em desenvolvimento sobre um aplicativo que iria auxiliar e gerenciar suas atividades tanto pessoais quanto profissionais.  </p>
 
                     <a href="/">Saiba mais</a>     
                 </div>
