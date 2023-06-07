@@ -16,18 +16,16 @@ export default function TeamCard(props) {
           <p>  { props.office } </p>
     
           <div className="social-media-team">
-              <a href={ props.instagram } className='social-link-team'>
+              <a href={`https://instagram.com/${ props.instagram }`} target="_blank" className='social-link-team'>
                   <InstagramLogo size={20} color="#ffff" weight='bold' />
               </a>
-              <a href={ props.github } className='social-link-team'>
+              <a href={`https://github.com/${ props.github }`} target="_blank" className='social-link-team'>
                   <GithubLogo size={20} color="#ffff"  weight='bold'/>
               </a>
-              <a href={ props.linkedin} className='social-link-team'>
+              <a href={`https://www.linkedin.com/in/${ props.linkedin }`} target="_blank" className='social-link-team'>
                   <LinkedinLogo size={20} color="#ffff" weight='bold' />
               </a>
-              <a href={ props.twitter } className='social-link-team'>
-                  <TwitterLogo size={20} color='#ffff' weight='bold' />
-              </a>
+             
           </div>
         </div>
     

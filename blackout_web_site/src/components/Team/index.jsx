@@ -53,100 +53,90 @@ export default function Team() {
                 name="KAIQUE SOUZA"
                 office="Back-end/CEO"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="kaiquesouzasantos"
+                github="kaiquesouzasantos"
+                linkedin="kaique-souza-santos"
                 />
                 <TeamCard 
                 image={henry}
                 name="HENRY MODESTO"
                 office="Front-End/UX-UI"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="henry_modesto05"
+                github="henrymodesto"
+                linkedin="henry-modesto-90b66b265"
                 />
                 <TeamCard 
                 image={bruna}
                 name="BRUNA KAREN"
                 office="Designer UI-UX"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="bru_k19"
+                github="brunaK19"
+                linkedin="bruna-karen-gomes-lopes-464b77279"
                 />
                 <TeamCard 
                 image={wiliam}
                 name="WILIAM MELO"
                 office="Mobile-developer"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
                 <TeamCard 
                 image={kaio}
                 name="KAIO KENUY"
                 office="Secretário"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
                 <TeamCard 
                 image={miguel}
                 name="Miguel Santos"
                 office="Front-end"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
                 <TeamCard 
                 image={kauan}
                 name="KAUAN GABRIEL"
                 office="Back-end"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
                 <TeamCard 
                 image={erick}
                 name="ERICK CHAVES"
                 office="Back-end"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
                 <TeamCard 
                 image={lorena}
                 name="LORENA ARAUJO"
                 office="Front-end"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
                 <TeamCard 
                 image={nicolly}
                 name="NICOLLY CHAVES"
                 office="Front-end"
                 
-                instagram=""
-                github=""
-                twitter=""
-                linkedin=""
+                instagram="https://www.instagram.com/"
+                github="https:www.github.com/"
+                linkedin="https://www.linkedin.com/in/"
                 />
 
             </InfiniteCarousel>
