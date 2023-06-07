@@ -84,7 +84,7 @@ export default function Team() {
                     />
                 </div>
                 <p> WILIAM MELO </p>
-                <p>  MOBILE </p>
+                <p>  Mobile developer </p>
             
                 <div className="social-media-team">
                     
