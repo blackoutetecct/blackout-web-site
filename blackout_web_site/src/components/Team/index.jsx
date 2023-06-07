@@ -75,68 +75,82 @@ export default function Team() {
                 github="brunaK19"
                 linkedin="bruna-karen-gomes-lopes-464b77279"
                 />
-                <TeamCard 
-                image={wiliam}
-                name="WILIAM MELO"
-                office="Mobile-developer"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
-                />
+                <div className="card">
+                <div>
+                    <img
+                        alt='integrante da Blackout'
+                        src={wiliam}
+                    />
+                </div>
+                <p> WILIAM MELO </p>
+                <p>  MOBILE </p>
+            
+                <div className="social-media-team">
+                    
+                    <a href={`https://github.com/WiliamMelo01`} target="_blank" className='social-link-team'>
+                        <GithubLogo size={20} color="#ffff"  weight='bold'/>
+                    </a>
+                    <a href={`https://www.linkedin.com/in/wiliam-melo-730992232/`} target="_blank" className='social-link-team'>
+                        <LinkedinLogo size={20} color="#ffff" weight='bold' />
+                    </a>
+                    
+                </div>
+                </div>
+
                 <TeamCard 
                 image={kaio}
                 name="KAIO KENUY"
                 office="Secretário"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
+                instagram="kenuy_kaio"
+                github="kenuykaio"
+                linkedin="kaio-kenuy-71ba02279"
                 />
                 <TeamCard 
                 image={miguel}
-                name="Miguel Santos"
+                name="MIGUEL SANTOS"
                 office="Front-end"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
+                instagram="mgy1kk"
+                github="miguelsantos1"
+                linkedin="miguel-oliveira-santos"
                 />
                 <TeamCard 
                 image={kauan}
                 name="KAUAN GABRIEL"
                 office="Back-end"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
+                instagram="kauan_ts11"
+                github="Kauan-Ts11"
+                linkedin="kauan-gabriel-aaab70264"
                 />
                 <TeamCard 
                 image={erick}
                 name="ERICK CHAVES"
                 office="Back-end"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
+                instagram="erick_chqves"
+                github="ErickSChaves"
+                linkedin=""
                 />
                 <TeamCard 
                 image={lorena}
                 name="LORENA ARAUJO"
                 office="Front-end"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
+                instagram="lorenaarauj0_"
+                github="lorenaaraujoo"
+                linkedin="lorena-araujo-almeida-708432206"
                 />
                 <TeamCard 
                 image={nicolly}
                 name="NICOLLY CHAVES"
-                office="Front-end"
+                office="Secretária"
                 
-                instagram="https://www.instagram.com/"
-                github="https:www.github.com/"
-                linkedin="https://www.linkedin.com/in/"
+                instagram="nik_chaves"
+                github="NicollyChaves"
+                linkedin="nicolly-chaves-11136927a"
                 />
 
             </InfiniteCarousel>
