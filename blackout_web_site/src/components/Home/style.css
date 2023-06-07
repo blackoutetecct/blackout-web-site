@@ -65,11 +65,11 @@
 
 .lamp {
     position: absolute;
-    right: 0px;
+    right: -7px;
     top: 25px;
 
     transition: 1s;
-    width: 500px;
+    width: 650px;
 
     z-index: 2;
 }
