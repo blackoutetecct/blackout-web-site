@@ -30,8 +30,8 @@ export default function Footer() {
                     <h3> Contatos </h3>
                     <div>
                         <ul>
-                            <li className="footer-link"><MapPin size={20} color="#fdbf71" weight='fill' /><a href="/" >  Etec Cidade Tiradentes </a></li>
-                            <li className="footer-link"> <EnvelopeSimple  size={20} color="#fdbf71" weight="bold" /><a href="/" > blackoutempresa@gmail.com </a></li>
+                            <li className="footer-link"><MapPin size={20} color="#fdbf71" weight='fill' /><a href="https://goo.gl/maps/bmxcfpZSfE22HxHV8" >  Etec Cidade Tiradentes </a></li>
+                            <li className="footer-link"> <EnvelopeSimple  size={20} color="#fdbf71" weight="bold" /><a href="mailto:blackoutempresa@gmail.com" > blackoutempresa@gmail.com </a></li>
                         </ul>
                     </div>
                 </div>

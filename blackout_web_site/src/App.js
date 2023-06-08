@@ -15,9 +15,7 @@ import WhoWeAre from './components/WhoWeAre';
 function App() {
   return (
     <>
-    
       <Header />
-
         <main> 
             <Chat />
             <Home />
@@ -25,11 +23,8 @@ function App() {
             <WhoWeAre />
             <Team />
             <Projects />
-      
         </main>
-
       <Footer />
-      
     </>
   );
 }

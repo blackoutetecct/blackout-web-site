@@ -29,19 +29,8 @@ export default function Projects() {
 
                     <p> Projeto didático desenvolvido com o intuito de testar nossas habilidades criando um E-commerce funcional de relógios de luxo como tema central.  </p>
 
-                    <a href="/">Saiba mais</a>     
+                    <a href="https://github.com/kaiquesouzasantos/etec199-2022-pw2-projetoFinal">Saiba mais</a>     
                     </div>  
-
-                <div className="project"> 
-                    <div><img src={project1} alt="Projeto" /></div>
-
-                    <h3> Gerenciador De Tarefas </h3>
-
-                    <p> Projeto em desenvolvimento sobre um aplicativo que iria auxiliar e gerenciar suas atividades tanto pessoais quanto profissionais.  </p>
-
-                    <a href="/">Saiba mais</a>     
-                </div>
-
             </div>
         </section>
 
