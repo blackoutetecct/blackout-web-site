@@ -40,6 +40,7 @@ export default function Team() {
                 },
                 ]}
                 dots={true}
+                arrows={false}
                 showSides={false}
                 sidesOpacity={.2}
                 sideSize={.1}
@@ -51,7 +52,7 @@ export default function Team() {
                 <TeamCard 
                 image={kaique}
                 name="KAIQUE SOUZA"
-                office="Back-end/CEO"
+                office="CEO/Back-end"
                 
                 instagram="kaiquesouzasantos"
                 github="kaiquesouzasantos"
@@ -69,7 +70,7 @@ export default function Team() {
                 <TeamCard 
                 image={bruna}
                 name="BRUNA KAREN"
-                office="Designer UI-UX"
+                office="Designer/Mobile"
                 
                 instagram="bru_k19"
                 github="brunaK19"
@@ -84,7 +85,7 @@ export default function Team() {
                     />
                 </div>
                 <p> WILIAM MELO </p>
-                <p>  Mobile developer </p>
+                <p>  Mobile </p>
             
                 <div className="social-media-team">
                     
@@ -137,7 +138,7 @@ export default function Team() {
                 <TeamCard 
                 image={lorena}
                 name="LORENA ARAUJO"
-                office="Front-end"
+                office="Gerente/Mobile"
                 
                 instagram="lorenaarauj0_"
                 github="lorenaaraujoo"
@@ -146,7 +147,7 @@ export default function Team() {
                 <TeamCard 
                 image={nicolly}
                 name="NICOLLY CHAVES"
-                office="Secretária"
+                office="Analista"
                 
                 instagram="nik_chaves"
                 github="NicollyChaves"
