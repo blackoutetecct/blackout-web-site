@@ -3,7 +3,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 0 5rem;
-    width: 100vw;
+    width: 90%;
     align-items: center;
     position: fixed;
     top: 0;
@@ -40,6 +40,10 @@ header {
     border-bottom-color: rgb(253, 191, 113);
   }
 
+  .nav-bar {
+    display: none;
+  }
+
   .line-on-the-right {
     position: absolute;
     top: 50px;
@@ -67,7 +71,15 @@ header {
 
   @media (max-width: 1100px) {
 
+    header {
+      width: 100vw;
+    }
+
     .contentLine {
+      display: block;
+    }
+
+    .nav-bar {
       display: block;
     }
 

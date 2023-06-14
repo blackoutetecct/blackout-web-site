@@ -43,12 +43,15 @@ export default function Header() {
       </nav>
       }
 
-      <div onClick={toggleMenu} className={` ${isOpen ? 'menuOpen' : ''}`}>
+
+      <div onClick={toggleMenu} className={` ${isOpen ? 'menuOpen' : 'nav-bar'}`}>
+
           <div className='line-on-the-right'>
             <div className={`${isOpen && 'closeMenuLeft'} line`}></div>
             <div className={` ${isOpen && 'no-display'}  line`}></div>
             <div className={`${isOpen && 'closeMenuRight'} line`}></div>
           </div>
+
 
           { isOpen && 
           <nav className='open'>
