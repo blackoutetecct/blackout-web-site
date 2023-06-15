@@ -1,3 +1,20 @@
+::-webkit-scrollbar {
+  width: 7px; /* Largura do scroll */
+}
+
+::-webkit-scrollbar-track {
+  background: #dadada; /* Cor do fundo do scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #121212; /* Cor do scroll */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(41, 41, 41); /* Cor do scroll ao passar o mouse */
+}
+
 html {
   scroll-behavior: smooth;
   width: 100%;
