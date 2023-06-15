@@ -102,7 +102,7 @@ export default function Team() {
                 <TeamCard 
                 image={kaio}
                 name="KAIO KENUY"
-                office="Secretário"
+                office="Analista"
                 
                 instagram="kenuy_kaio"
                 github="kenuykaio"
