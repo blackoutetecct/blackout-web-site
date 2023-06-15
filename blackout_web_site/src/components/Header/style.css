@@ -2,8 +2,8 @@ header {
     background-color: #090808;
     display: flex;
     justify-content: space-between;
-    padding: 0 5rem;
-    width: 90%;
+    padding: 0 10rem 0 5rem;
+    width: 100%;
     align-items: center;
     position: fixed;
     top: 0;
@@ -33,6 +33,10 @@ header {
     border-radius: 5px;
     border-bottom: 3px solid transparent;
     transition: .3s ease-in-out;
+  }
+
+  header ul li:nth-child(4) {
+    margin-right: 10rem;
   }
 
   header ul li a:hover {

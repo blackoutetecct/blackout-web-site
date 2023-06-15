@@ -3,12 +3,14 @@
     display: flex;
     flex-direction: column;
     right: 10px;
-    top: 50px;
+    top: 60px;
     background-color: #121212;
     color: white;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
     border-radius: 10px;
-    width: 35vw;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
     height: 80vh;
 
     z-index: 1000;
@@ -58,6 +60,9 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: 0 1rem;
+
+    overflow-y: scroll;
 }
 
 .chat-attendant {
@@ -91,13 +96,15 @@
 
 .input-container input[type="text"] {
     background-color: transparent;
-    padding: 2rem 2rem;
+    padding: 1rem 2rem;
     border: 3px solid #232220;
     border-radius: 10px;
     flex: 1;
     
     color: white;
     font-size: 1rem;
+
+    align-self: flex-end;
 }
 
 .input-container input[type="text"]::placeholder {
@@ -106,7 +113,8 @@
 } 
 
 .input-container div{
-    height: 90%;
+    align-self: flex-end;
+    height: 60%;
     width: 98px;
     background-color: #FDBF71;
     display: grid;
