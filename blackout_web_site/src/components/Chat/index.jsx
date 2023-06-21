@@ -19,6 +19,7 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
   const [userId, setUserId] = useState("");
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
   const [endConversation, setEndConversation] = useState(false);
 
   const enviarMensagem = useCallback(async () => {
@@ -96,6 +97,19 @@ export default function Chat() {
     };
   }, [userId, userMessage, enviarMensagem]);
 
+  useEffect(() => {
+    const headerMenu = document.querySelector('.line-on-the-right')
+    headerMenu.addEventListener('click', () => {
+      setIsButtonVisible(prev => !prev)
+      document.querySelector('.chat-open').classList.toggle('invisible')
+    });
+
+    return () => {
+      headerMenu.removeEventListener('click', () => null)
+    }
+
+  },[])
+
   // async function tentaFinalizarChat() {
   //   setEndConversation(true)
   // }
@@ -113,7 +127,7 @@ export default function Chat() {
   //   });
   //   setEndConversation(false)
   //   chatRef.current.classList.remove("chatbox--active")
-  // }
+  // }  
 
   function handleClick() {
     chatRef.current.classList.toggle("active");

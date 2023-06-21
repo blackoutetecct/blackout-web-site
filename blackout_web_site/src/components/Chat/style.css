@@ -148,6 +148,10 @@
   z-index: 999;
 }
 
+.chat-open.invisible {
+  display: none;
+}
+
 .chat-open--circle {
   padding: 30px 35px;
   background: #121212;
@@ -183,5 +187,12 @@
   bottom: 20px;
   color: #9b7341;
   font-weight: 700;
-  left:50px;
+  left: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  .chat-open {
+    transform: scale(.75);
+    top: 70vh;
+  }
 }

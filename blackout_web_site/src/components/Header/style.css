@@ -118,7 +118,7 @@ header {
     width: 100vw;
     height: 100vh;
 
-    z-index: 400;
+    z-index: 4000;
   }
 
   .closeMenuLeft {
