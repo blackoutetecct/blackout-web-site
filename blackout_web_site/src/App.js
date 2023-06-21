@@ -13,10 +13,15 @@ import WhoWeAre from './components/WhoWeAre';
 
 
 function App() {
+
+  function handleClick(){
+    document.querySelector('.chat-container').classList.remove('active')
+  }
+
   return (
     <>
       <Header />
-        <main> 
+        <main onClick={handleClick}>  
             <Chat />
             <Home />
             <KnowMore />

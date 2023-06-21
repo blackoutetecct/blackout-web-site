@@ -1,112 +1,100 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./style.css";
 
-import attendant from '../../images/chat.png'
-import menu from '../../images/menu.png'
-import submit from '../../images/submit.png'
+import { useCallback, useState } from "react";
+import { createPortal } from "react-dom";
+import attendant from "../../images/chat.png";
+import menu from "../../images/menu.png";
+import open from "../../images/open-chatv2.png";
+import submit from "../../images/submit.png";
 import { api } from "../../libs/axios";
 
 export default function Chat() {
   // Refs
-  const botaoAbrirChatRef = useRef();
   const chatRef = useRef();
-  const inputMensagemRef = useRef();
   const divMensagensRef = useRef();
+  const inputMensagemRef = useRef();
 
-  // // Estados
-  // const [messages, setMessages] = useState();
-  // const [userId, setUserId] = useState("");
-  // const [userMessage, setUserMessage] = useState("");
-  // const [endConversation, setEndConversation] = useState(false);
+  // Estados
+  const [messages, setMessages] = useState([]);
+  const [userMessage, setUserMessage] = useState("");
+  const [userId, setUserId] = useState("");
+  const [endConversation, setEndConversation] = useState(false);
 
-  // // Função para enviar mensagem
-  // const enviarMensagem = useCallback(async () => {
-  //   setUserMessage("");
+  const enviarMensagem = useCallback(async () => {
+    setUserMessage("")
+    await api.post(
+      `message/send?response=f906ca07-e369-4b2f-999e-26dac2f5c8e9`,
+      {
+        text: userMessage,
+        sender: userId,
+      }
+    );
 
-  //   await api.post(
-  //     `message/send?response=f906ca07-e369-4b2f-999e-26dac2f5c8e9`,
-  //     {
-  //       text: userMessage,
-  //       sender: userId,
-  //     }
-  //   );
+    // Busca todas as mensagens e aramazena somente as informações necessarias
+    let allMessages = await api.get("message/all");
+    allMessages = allMessages.data.map((message) => {
+      return {
+        time: message.time,
+        text: message.text,
+        sender: message.sender,
+      };
+    });
+    setMessages(allMessages);
 
-  //   // Busca todas as mensagens e aramazena somente as informações necessarias
-  //   let allMessages = await api.get("message/all");
-  //   allMessages = allMessages.data.map((message) => {
-  //     return {
-  //       time: message.time,
-  //       text: message.text,
-  //       sender: message.sender,
-  //     };
-  //   });
-  //   setMessages(allMessages);
+  }, [userId,userMessage]);
 
-  //   // Espera 100 milisegundos apos o envio da mensagem e rola a div para baixo para a nova mensagem ficar visivel
-  //   setTimeout(() => {
-  //     divMensagensRef.current.scrollTop = divMensagensRef.current.scrollHeight;
-  //   }, 100);
-  // }, [userId, userMessage]);
+  useEffect(() => {
+    // Busca mensagens a cada segundo
+    const buscaMensagensACadaSegundo = setInterval(async () => {
+      let allMessages = await api.get("message/all");
+      allMessages = allMessages.data.map((message) => {
+        return {
+          time: message.time,
+          text: message.text,
+          sender: message.sender,
+        };
+      });
+      setMessages(allMessages);
+    }, 1000);
 
-  // useEffect(() => {
-  //   // Busca mensagens a cada segundo
-  //   const buscaMensagensACadaSegundo = setInterval(async () => {
-  //     let allMessages = await api.get("message/all");
-  //     allMessages = allMessages.data.map((message) => {
-  //       return {
-  //         time: message.time,
-  //         text: message.text,
-  //         sender: message.sender,
-  //       };
-  //     });
-  //     setMessages(allMessages);
-  //   }, 1000);
+    // Recupera o ID do usuário ou cria um novo
+    (async () => {
+      try {
+        let recovered_user_id = localStorage.getItem("blackout_chat_user_id");
+        if (recovered_user_id) {
+          setUserId(recovered_user_id);
+          return;
+        }
+        const response = await api.post("user/save", {});
+        const { id } = response.data;
+        localStorage.setItem("blackout_chat_user_id", id);
+        setUserId(id);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
 
-  //   // Recupera o ID do usuário ou cria um novo
-  //   (async () => {
-  //     try {
-  //       let recovered_user_id = localStorage.getItem("blackout_chat_user_id");
-  //       if (recovered_user_id) {
-  //         setUserId(recovered_user_id);
-  //         return;
-  //       }
-  //       const response = await api.post("user/save", {});
-  //       const { id } = response.data;
-  //       localStorage.setItem("blackout_chat_user_id", id);
-  //       setUserId(id);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   })();
+    // Limpeza dos intervalos quando o componente é desmontado
+    return () => {
+      clearInterval(buscaMensagensACadaSegundo);
+    };
+  }, []);
 
-  //   function handleClick() {
-  //     chatRef.current.classList.toggle("chatbox--active");
-  //   }
+  useEffect(() => {
+    // Função para enviar mensagem ao pressionar Enter
+    const handleKeyPress = (event) => {
+      if (event.key === "Enter") {
+        enviarMensagem();
+      }
+    };
 
-  //   // Event listener para abrir/fechar o chat
-  //   botaoAbrirChatRef.current.addEventListener("click", handleClick);
+    inputMensagemRef.current.addEventListener("keypress", handleKeyPress);
 
-  //   // Limpeza dos intervalos quando o componente é desmontado
-  //   return () => {
-  //     clearInterval(buscaMensagensACadaSegundo);
-  //     botaoAbrirChatRef.current.removeEventListener("click", handleClick);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   // Função para enviar mensagem ao pressionar Enter
-  //   const handleKeyPress = (event) => {
-  //     if (event.key === "Enter") {
-  //       enviarMensagem();
-  //     }
-  //   };
-
-  //   inputMensagemRef.current.addEventListener("keypress", handleKeyPress);
-
-  //   return () => {
-  //     inputMensagemRef.current.removeEventListener("keypress", handleKeyPress);
-  //   };
-  // }, [userId, userMessage, enviarMensagem]);
+    return () => {
+      inputMensagemRef.current.removeEventListener("keypress", handleKeyPress);
+    };
+  }, [userId, userMessage, enviarMensagem]);
 
   // async function tentaFinalizarChat() {
   //   setEndConversation(true)
@@ -127,35 +115,78 @@ export default function Chat() {
   //   chatRef.current.classList.remove("chatbox--active")
   // }
 
-  return (
-   <div className="chat-container">
+  function handleClick() {
+    chatRef.current.classList.toggle("active");
+  }
 
-    <div className="chat-menu">
-      <div>
-        <img className="chat-attendant-img" src={attendant} alt="Chat atendente" />
+  return (
+    <div
+      className="chat-container"
+      ref={chatRef}
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
+      <div className="chat-menu">
         <div>
-          <h4>ATENDENTE</h4>
-          <p>Olá! Como posso ajudar?</p>
+          <img
+            className="chat-attendant-img"
+            src={attendant}
+            alt="Chat atendente"
+          />
+          <div>
+            <h4>ATENDENTE</h4>
+            <p>Olá! Como posso ajudar?</p>
+          </div>
+        </div>
+
+        <img className="chat-menu-img" src={menu} alt="Menu" />
+      </div>
+
+      <div className="chat-messages" ref={divMensagensRef}>
+        {messages.map((message, index) => {
+          const className = `chat-${message.sender === userId ? 'user' : 'attendant'}`
+          return <p className={className} key={index}>{message.text}</p>
+        })}
+        <ScrollChatToBottom/>
+      </div>
+
+      <div className="input-container">
+        <input type="text" placeholder="Olá, preciso de ajuda!" ref={inputMensagemRef} value={userMessage} onChange={(e) => setUserMessage(e.target.value)}/>
+        <div onClick={enviarMensagem}>
+          <img src={submit} alt="" />
         </div>
       </div>
-
-      <img className="chat-menu-img" src={menu} alt="Menu" />
+      {createPortal(
+        <div className="chat-open">
+          <div
+            className="chat-open--circle"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleClick();
+            }}
+          >
+            <img src={open} alt="Open and close" />
+            <div className="chat-open--polygon" />
+          </div>
+          <p className="chat-open--text">FALE CONOSCO</p>
+        </div>,
+        document.querySelector("body")
+      )}
     </div>
-
-    <div className="chat-messages">
-      <p className="chat-attendant"> Como posso te ajudar? </p>
-      <p className="chat-user"> Como posso te ajudar? </p>
-    </div>
-
-    <div className="input-container"> 
-       
-      <input type="text" placeholder="Olá, preciso de ajuda!" />
-      <div> 
-        <img src={submit} alt="" />  
-      </div>
-
-    </div>
-
-   </div>
   );
+}
+
+function ScrollChatToBottom(){
+  const ref = useRef()
+  useEffect(() => {
+    ref?.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest'
+    })
+  })
+
+  return <div ref={ref}/>
+
 }
