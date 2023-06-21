@@ -12,10 +12,10 @@ export default function Footer() {
                     <div>
                     <ul>
                         <li className="footer-link">
-                            <ArrowRight size={20} weight='bold' color="#fdbf71" /> <a href="/" > início </a>
+                            <ArrowRight size={20} weight='bold' color="#fdbf71" /> <a href="/" > Início </a>
                         </li>
                         <li className='footer-link'>
-                            <ArrowRight size={20} weight='bold' color="#fdbf71" />  <a href="#quemSomos" > Quem somos </a>
+                            <ArrowRight size={20} weight='bold' color="#fdbf71" />  <a href="#quemSomos" > Quem Somos </a>
                         </li>
                         <li className='footer-link'>
                             <ArrowRight size={20} weight='bold' color="#fdbf71" />  <a href="#equipe" > Equipe </a>
