@@ -5,6 +5,5 @@
 </p>
 
 #
-### OBSERVACOES
-- ALINHAR HEADER/MENU
-- EQUIPE APRESENTANDO DISTORCAO
+### HOSPEDADO
+- https://blackout-site.vercel.app
