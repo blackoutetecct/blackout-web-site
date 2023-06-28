@@ -101,6 +101,7 @@
   border: 3px solid #232220;
   border-radius: 10px;
   flex: 1;
+  width: 100%;
 
   color: white;
   font-size: 1rem;
@@ -190,9 +191,46 @@
   left: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .chat-container {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .input-container div {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .chat-container {
+    width: 75%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 55%;
+  }
+  .chat-open {
+    bottom: 10vh;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .chat-open {
     transform: scale(.75);
-    top: 70vh;
+    bottom: 70vh;
+  }
+
+  .input-container input[type="text"] {
+    padding: 1rem 1rem;
+  }
+}
+
+
+@media screen and (max-height: 740px){
+  .chat-open {
+    transform: scale(.70);
+    top: 75vh;
   }
 }

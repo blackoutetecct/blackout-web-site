@@ -19,7 +19,6 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
   const [userId, setUserId] = useState("");
-  const [isButtonVisible, setIsButtonVisible] = useState(true);
   const [endConversation, setEndConversation] = useState(false);
 
   const enviarMensagem = useCallback(async () => {
@@ -100,7 +99,6 @@ export default function Chat() {
   useEffect(() => {
     const headerMenu = document.querySelector('.line-on-the-right')
     headerMenu.addEventListener('click', () => {
-      setIsButtonVisible(prev => !prev)
       document.querySelector('.chat-open').classList.toggle('invisible')
     });
 
