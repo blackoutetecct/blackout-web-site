@@ -1,8 +1,8 @@
 import './style.css'
 
-import phone from '../../images/phone.png'
 import light from '../../images/luz.png'
 import outlet from '../../images/outlet.png'
+import phone from '../../images/phone.png'
 
 export default function WhoWeAre() {
 
@@ -12,7 +12,7 @@ export default function WhoWeAre() {
         <h2 id="quemSomos"> QUEM SOMOS </h2>
   
         <div className="description-we-are">
-          <img src={phone} alt="Phone" class="phone" />
+          <img src={phone} alt="Phone" className="phone" />
   
           <div>
             <p> A BLACKOUT é uma empresa especializada em oferecer <br />soluções tecnológicas sob medida para você. <br /> com uma equipe altamente qualificada de programadores, <br /> desenvolvemos softwares, aplicativos, websites e sistemas. </p>

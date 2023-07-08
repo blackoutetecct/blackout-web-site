@@ -4,7 +4,8 @@ import "./style.css";
 import { useCallback, useState } from "react";
 import { createPortal } from "react-dom";
 import attendant from "../../images/chat.png";
-import menu from "../../images/menu.png";
+import close from "../../images/close.png";
+import minimize from "../../images/minimize.png";
 import open from "../../images/open-chatv2.png";
 import submit from "../../images/submit.png";
 import { api } from "../../libs/axios";
@@ -14,17 +15,17 @@ export default function Chat() {
   const chatRef = useRef();
   const divMensagensRef = useRef();
   const inputMensagemRef = useRef();
+  const finishChatRef = useRef();
 
   // Estados
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
   const [userId, setUserId] = useState("");
-  const [endConversation, setEndConversation] = useState(false);
 
   const enviarMensagem = useCallback(async () => {
-    setUserMessage("")
+    setUserMessage("");
     await api.post(
-      `message/send?response=f906ca07-e369-4b2f-999e-26dac2f5c8e9`,
+      `message/send?response=7aa03974-46a5-4efd-a69f-0c9ef70f63f3`,
       {
         text: userMessage,
         sender: userId,
@@ -41,8 +42,7 @@ export default function Chat() {
       };
     });
     setMessages(allMessages);
-
-  }, [userId,userMessage]);
+  }, [userId, userMessage]);
 
   useEffect(() => {
     // Busca mensagens a cada segundo
@@ -97,38 +97,33 @@ export default function Chat() {
   }, [userId, userMessage, enviarMensagem]);
 
   useEffect(() => {
-    const headerMenu = document.querySelector('.line-on-the-right')
-    headerMenu.addEventListener('click', () => {
-      document.querySelector('.chat-open').classList.toggle('invisible')
+    const headerMenu = document.querySelector(".line-on-the-right");
+    headerMenu.addEventListener("click", () => {
+      document.querySelector(".chat-open").classList.toggle("invisible");
     });
 
     return () => {
-      headerMenu.removeEventListener('click', () => null)
-    }
+      headerMenu.removeEventListener("click", () => null);
+    };
+  }, []);
 
-  },[])
-
-  // async function tentaFinalizarChat() {
-  //   setEndConversation(true)
-  // }
-
-  // function cancelarFinalizacaoChat(){
-  //   setEndConversation(false)
-  // }
-
-  // async function confirmarFinalizacaotoChat(){
-  //   const deleteAdminMessages = await api.delete(`message`, {
-  //     params: { userId: "79df6165-6922-45a6-b99e-0ed2b1cdcf87" },
-  //   });
-  //   const deleteUserMessages = await api.delete(`message`, {
-  //     params: { userId },
-  //   });
-  //   setEndConversation(false)
-  //   chatRef.current.classList.remove("chatbox--active")
-  // }  
+  async function finalizaChat(){
+    const deleteAdminMessages = await api.delete(`message`, {
+      params: { userId: "7aa03974-46a5-4efd-a69f-0c9ef70f63f3" },
+    });
+    const deleteUserMessages = await api.delete(`message`, {
+      params: { userId },
+    });
+    chatRef.current.classList.remove("active")
+    handleFinishChatVisibility();
+  }
 
   function handleClick() {
     chatRef.current.classList.toggle("active");
+  }
+
+  function handleFinishChatVisibility() {
+    finishChatRef.current.classList.toggle("active");
   }
 
   return (
@@ -139,6 +134,31 @@ export default function Chat() {
         e.stopPropagation();
       }}
     >
+      <div className="menu-actions">
+        <button onClick={handleClick}>
+          <img src={minimize} alt="Minimize icon" />
+        </button>
+        <button onClick={handleFinishChatVisibility}>
+          <img src={close} alt="Close icon" />
+        </button>
+      </div>
+
+      <div ref={finishChatRef} className="finish_chat_modal">
+        <p className="finish_chat_modal--title">Encerrar Chat</p>
+
+        <p className="finish_chat_modal--confirm-text">
+          Todas as mensagens no chat serão apagadas. Deseja encerrar esta
+          sessão?
+        </p>
+
+        <div className="finish_chat_modal--actions-wrapper">
+          <button className="finish_chat_modal--cancel" onClick={handleFinishChatVisibility}>Cancelar</button>
+          <button className="finish_chat_modal--confirm" onClick={finalizaChat}>
+            Finalizar agora
+          </button>
+        </div>
+      </div>
+
       <div className="chat-menu">
         <div>
           <img
@@ -151,20 +171,30 @@ export default function Chat() {
             <p>Olá! Como posso ajudar?</p>
           </div>
         </div>
-
-        <img className="chat-menu-img" src={menu} alt="Menu" />
       </div>
 
       <div className="chat-messages" ref={divMensagensRef}>
         {messages.map((message, index) => {
-          const className = `chat-${message.sender === userId ? 'user' : 'attendant'}`
-          return <p className={className} key={index}>{message.text}</p>
+          const className = `chat-${
+            message.sender === userId ? "user" : "attendant"
+          }`;
+          return (
+            <p className={className} key={index}>
+              {message.text}
+            </p>
+          );
         })}
-        <ScrollChatToBottom/>
+        <ScrollChatToBottom />
       </div>
 
       <div className="input-container">
-        <input type="text" placeholder="Olá, preciso de ajuda!" ref={inputMensagemRef} value={userMessage} onChange={(e) => setUserMessage(e.target.value)}/>
+        <input
+          type="text"
+          placeholder="Olá, preciso de ajuda!"
+          ref={inputMensagemRef}
+          value={userMessage}
+          onChange={(e) => setUserMessage(e.target.value)}
+        />
         <div onClick={enviarMensagem}>
           <img src={submit} alt="" />
         </div>
@@ -189,16 +219,15 @@ export default function Chat() {
   );
 }
 
-function ScrollChatToBottom(){
-  const ref = useRef()
+function ScrollChatToBottom() {
+  const ref = useRef();
   useEffect(() => {
     ref?.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'nearest'
-    })
-  })
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  });
 
-  return <div ref={ref}/>
-
+  return <div ref={ref} />;
 }
