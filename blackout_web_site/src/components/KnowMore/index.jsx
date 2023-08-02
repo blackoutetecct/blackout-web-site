@@ -12,7 +12,7 @@ export default function KnowMore() {
 
             <div>
             <p> A empresa Blackout é atuante no setor <br /> tecnológico, sendo especializada em <br /> desenvolvimento de softwares e aplicativos. </p>
-            <p> Focada na construção de solucação de forma <br /> personalizada e utlizando tecnologias modernas <br /> e validas  </p>
+            <p> Focada na construção de solução de forma <br /> personalizada e utlizando tecnologias modernas <br /> e validas  </p>
             </div>
         </section>
 
