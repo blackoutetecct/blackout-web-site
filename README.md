@@ -5,5 +5,8 @@
 </p>
 
 #
+### TECNOLOGIAS
+
+#
 ### HOSPEDADO
 - https://blackout-site.vercel.app
