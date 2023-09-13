@@ -25,7 +25,7 @@ export default function Chat() {
   const enviarMensagem = useCallback(async () => {
     setUserMessage("");
     await api.post(
-      `message/send?response=7aa03974-46a5-4efd-a69f-0c9ef70f63f3`,
+      `message/send?response=4967bb05-0c02-482c-9696-316965e0a932`,
       {
         text: userMessage,
         sender: userId,
