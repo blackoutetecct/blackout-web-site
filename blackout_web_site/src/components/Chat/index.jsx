@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./style.css";
 
-import { useCallback, useState } from "react";
+import {  useState } from "react";
 import { createPortal } from "react-dom";
 import attendant from "../../images/chat.png";
 import close from "../../images/close.png";
@@ -9,6 +9,8 @@ import minimize from "../../images/minimize.png";
 import open from "../../images/open-chatv2.png";
 import submit from "../../images/submit.png";
 import { api } from "../../libs/axios";
+import { MessageService } from "../../services/messageService.ts";
+import { SessionService } from "../../services/sessionService.ts";
 
 export default function Chat() {
   // Refs
@@ -20,72 +22,35 @@ export default function Chat() {
   // Estados
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
-  const [userId, setUserId] = useState("");
+  const [session, setSession] = useState("");
 
-  const enviarMensagem = useCallback(async () => {
-    setUserMessage("");
-    await api.post(
-      `message/send?response=4967bb05-0c02-482c-9696-316965e0a932`,
-      {
-        text: userMessage,
-        sender: userId,
-      }
-    );
-
-    // Busca todas as mensagens e aramazena somente as informações necessarias
-    let allMessages = await api.get("message/all");
-    allMessages = allMessages.data.map((message) => {
-      return {
-        time: message.time,
-        text: message.text,
-        sender: message.sender,
-      };
-    });
-    setMessages(allMessages);
-  }, [userId, userMessage]);
+  const messageService = new MessageService();
+  const sessionService = new SessionService();
 
   useEffect(() => {
-    // Busca mensagens a cada segundo
-    const buscaMensagensACadaSegundo = setInterval(async () => {
-      let allMessages = await api.get("message/all");
-      allMessages = allMessages.data.map((message) => {
-        return {
-          time: message.time,
-          text: message.text,
-          sender: message.sender,
-        };
-      });
-      setMessages(allMessages);
-    }, 1000);
-
-    // Recupera o ID do usuário ou cria um novo
+    // Recupera o Seção do chat ou cria uma nova
     (async () => {
-      try {
-        let recovered_user_id = localStorage.getItem("blackout_chat_user_id");
-        if (recovered_user_id) {
-          setUserId(recovered_user_id);
-          return;
-        }
-        const response = await api.post("user/save", {});
-        const { id } = response.data;
-        localStorage.setItem("blackout_chat_user_id", id);
-        setUserId(id);
-      } catch (error) {
-        console.error(error);
-      }
+      await sessionService.getSession(setSession);
     })();
-
-    // Limpeza dos intervalos quando o componente é desmontado
-    return () => {
-      clearInterval(buscaMensagensACadaSegundo);
-    };
   }, []);
+
+  useEffect(() => {
+// Busca mensagens a cada segundo
+  const buscaMensagensACadaSegundo = setInterval(async () => {
+    await messageService.buscaTodasMensagens(session, setMessages);
+  }, 1000);
+
+   // Limpeza dos intervalos quando o componente é desmontado
+   return () => {
+    clearInterval(buscaMensagensACadaSegundo);
+  };
+  }, [session]);
 
   useEffect(() => {
     // Função para enviar mensagem ao pressionar Enter
     const handleKeyPress = (event) => {
       if (event.key === "Enter") {
-        enviarMensagem();
+        messageService.enviarMensagem(userMessage, setUserMessage, session, setMessages);
       }
     };
 
@@ -94,7 +59,7 @@ export default function Chat() {
     return () => {
       inputMensagemRef.current.removeEventListener("keypress", handleKeyPress);
     };
-  }, [userId, userMessage, enviarMensagem]);
+  }, [session, userMessage]);
 
   useEffect(() => {
     const headerMenu = document.querySelector(".line-on-the-right");
@@ -108,11 +73,8 @@ export default function Chat() {
   }, []);
 
   async function finalizaChat(){
-    const deleteAdminMessages = await api.delete(`message`, {
-      params: { userId: "7aa03974-46a5-4efd-a69f-0c9ef70f63f3" },
-    });
-    const deleteUserMessages = await api.delete(`message`, {
-      params: { userId },
+    await api.delete(`message`, {
+      params: { id: session },
     });
     chatRef.current.classList.remove("active")
     handleFinishChatVisibility();
@@ -176,7 +138,7 @@ export default function Chat() {
       <div className="chat-messages" ref={divMensagensRef}>
         {messages.map((message, index) => {
           const className = `chat-${
-            message.sender === userId ? "user" : "attendant"
+            !message.admin ? "user" : "attendant"
           }`;
           return (
             <p className={className} key={index}>
@@ -195,7 +157,9 @@ export default function Chat() {
           value={userMessage}
           onChange={(e) => setUserMessage(e.target.value)}
         />
-        <div onClick={enviarMensagem}>
+        <div onClick={() => {
+          messageService.enviarMensagem(userMessage, setUserMessage, session, setMessages);
+        }}>
           <img src={submit} alt="" />
         </div>
       </div>
