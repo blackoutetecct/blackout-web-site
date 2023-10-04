@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import "./style.css";
 
 import {  useState } from "react";
@@ -24,15 +24,15 @@ export default function Chat() {
   const [userMessage, setUserMessage] = useState("");
   const [session, setSession] = useState("");
 
-  const messageService = new MessageService();
-  const sessionService = new SessionService();
+  const messageService = useMemo(() => new MessageService(),[]);
+  const sessionService = useMemo(()=> new SessionService(),[]);
 
   useEffect(() => {
     // Recupera o Seção do chat ou cria uma nova
     (async () => {
       await sessionService.getSession(setSession);
     })();
-  }, []);
+  }, [sessionService]);
 
   useEffect(() => {
 // Busca mensagens a cada segundo
@@ -44,7 +44,7 @@ export default function Chat() {
    return () => {
     clearInterval(buscaMensagensACadaSegundo);
   };
-  }, [session]);
+  }, [session, messageService]);
 
   useEffect(() => {
     // Função para enviar mensagem ao pressionar Enter
@@ -56,10 +56,12 @@ export default function Chat() {
 
     inputMensagemRef.current.addEventListener("keypress", handleKeyPress);
 
+    const ref = inputMensagemRef.current;
+
     return () => {
-      inputMensagemRef.current.removeEventListener("keypress", handleKeyPress);
+      ref.removeEventListener("keypress", handleKeyPress);
     };
-  }, [session, userMessage]);
+  }, [session, userMessage, messageService, ]);
 
   useEffect(() => {
     const headerMenu = document.querySelector(".line-on-the-right");
@@ -74,8 +76,9 @@ export default function Chat() {
 
   async function finalizaChat(){
     await api.delete(`message`, {
-      params: { id: session },
+      params: { session: session },
     });
+    localStorage.removeItem("blackout_chat_session");
     chatRef.current.classList.remove("active")
     handleFinishChatVisibility();
   }
